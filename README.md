@@ -1,10 +1,10 @@
 # ValuePy: A library for value investing using Python
 ### ValuePy is a Python library that provides tools for value investing. It can be used to load, analyze and visualize financial data of stocks. It also allows you to set projections for future financial performance of the stock and calculates various financial metrics.
 
-from valuepy import Stock
 
 ## Create a Stock object
 ```
+from valuepy import Stock
 stock = Stock("AAPL", start_year=2010)
 ```
 ## Load financial data
