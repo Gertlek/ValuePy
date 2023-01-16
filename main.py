@@ -85,3 +85,15 @@ class Stock:
         self.calculate_metrics()
         for key, value in self.metrics.items():
             print(key, ":", value)
+
+    def dcf(self, discount_rate, buyback_rate):
+        """Calculate the discounted cash flow value of the stock using the projected financial KPI's"""
+        if self.projections is None:
+            raise ValueError("You must set projections before calculating DCF")
+        dcf_value = 0
+        for i in range(len(self.projections)):
+            dcf_value += (self.projections.iloc[i]["free_cash_flow"] * (1 + buyback_rate)**i) / (1 + discount_rate)**i
+        return dcf_value
+
+#projections = pd.DataFrame({"year": [2021, 2022, 2023], "free_cash_flow": [100, 120, 140]})
+
